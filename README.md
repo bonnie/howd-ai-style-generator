@@ -2,13 +2,14 @@
 
 This code supports the "Next.js Data Fetching" series from the [Hands-on Web Dev newsletter](https://newsletter.howd.dev).
 
-To try the first workshop in this series, [start here](https://newsletter.howd.dev/challenges/023/)!
+To try the first workshop in this series, [start here](https://newsletter.howd.dev/challenges/029/)!
 
 ## Related series
 
-This series builds on the [React Components](https://newsletter.howd.dev/challenges/017/) series. If you haven't looked at that series, you might want to start there instead.
+This is the third series to work on the same application. You can find the previous two series here:
 
-The work from this series will be used in the following series: [AI Style Generator](https://newsletter.howd.dev/challenges/029/), where you will use the [OpenAI Node SDK](https://github.com/openai/openai-node) to generate styles for the quote fetched in this series.
+- [React Components](https://newsletter.howd.dev/challenges/017/)
+- [Next.js Data Fetching](https://newsletter.howd.dev/challenges/023/)
 
 ## Getting started
 
@@ -19,7 +20,13 @@ The work from this series will be used in the following series: [AI Style Genera
 
 You should see a page that looks like this:
 
-![mostly empty page with a pale green background and a footer leading to https://newsletter.howd.dev](./readme-images/scaffolding-home.png)
+![mostly empty page with a pale green background, a button called 'use random quote', and a footer leading to https://newsletter.howd.dev](./readme-images/scaffolding-home.png)
+
+If you click the button the app will display a random quote from [data/quotes.ts](data/quotes.ts), like this:
+
+![web page with a pale green background, a button called 'use random quote', a quote that says "", and a footer leading to https://newsletter.howd.dev](./readme-images/random-quote.png)
+
+**Please note**: The quotes were taken from [Kaggle datasets](https://www.kaggle.com/datasets), and do not necessarily reflect the views of the instructor!
 
 ## This project uses...
 
