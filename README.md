@@ -24,9 +24,15 @@ You should see a page that looks like this:
 
 If you click the button the app will display a random quote from [data/quotes.ts](data/quotes.ts), like this:
 
-![web page with a pale green background, a button called 'use random quote', a quote that says "", and a footer leading to https://newsletter.howd.dev](./readme-images/random-quote.png)
+![web page with a pale green background, a button called 'use random quote', a quote that says "if 40 is the new 30 and 50 is the new 40, why can't Thursday be the new Friday", and a footer leading to https://newsletter.howd.dev](./readme-images/random-quote.png)
 
 **Please note**: The quotes were taken from [Kaggle datasets](https://www.kaggle.com/datasets), and **do not necessarily reflect the views of the instructor**.
+
+### Generate an OpenAI API Key
+
+1. create [an OpenAI account](https://platform.openai.com/signup) (if you don't have one already)
+2. [generate an API key](https://platform.openai.com/account/api-keys)
+3. You may need to make a [nominal payment](https://platform.openai.com/settings/organization/billing/overview) in order to get started. To give you a point of reference: to develop the app for this series, I spent a total of $0.24 total over about six weeks. I have never spent more than $0.05 in one day, and most days it was **much** less (less than $0.01).
 
 ## This project uses...
 
