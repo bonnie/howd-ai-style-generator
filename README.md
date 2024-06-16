@@ -26,7 +26,7 @@ If you click the button the app will display a random quote from [data/quotes.ts
 
 ![web page with a pale green background, a button called 'use random quote', a quote that says "", and a footer leading to https://newsletter.howd.dev](./readme-images/random-quote.png)
 
-**Please note**: The quotes were taken from [Kaggle datasets](https://www.kaggle.com/datasets), and do not necessarily reflect the views of the instructor!
+**Please note**: The quotes were taken from [Kaggle datasets](https://www.kaggle.com/datasets), and **do not necessarily reflect the views of the instructor**.
 
 ## This project uses...
 
