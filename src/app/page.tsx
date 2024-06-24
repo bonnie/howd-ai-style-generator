@@ -3,7 +3,7 @@
 import Button from "@/components/Button";
 import QuoteContent from "@/components/QuoteContent";
 import Separator from "@/components/Separator";
-import useQuoteStyles from "@/hooks/use-quote-style";
+import useQuoteStyles from "@/hooks/use-quote-styles";
 
 export default function Home() {
   const { status, error, quote, fetchQuoteStyles } = useQuoteStyles();
