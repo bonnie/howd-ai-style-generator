@@ -7,11 +7,6 @@ import Card from "../Card";
 import styles from "./QuoteDetails.module.css";
 import QuoteStyleItem from "./QuoteStyleItem";
 
-async function loadFontFace(fontFace: FontFace) {
-  const loadedFont = await fontFace.load();
-  document.fonts.add(loadedFont);
-}
-
 export interface QuoteDetailsProps {
   quoteProperties: QuoteProperties;
 }
