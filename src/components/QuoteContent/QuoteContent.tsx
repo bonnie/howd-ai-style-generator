@@ -2,10 +2,10 @@ import React from "react";
 
 import type { QuoteProperties, Status } from "@/types";
 
-import Card from "../Card";
 import ErrorCard from "../ErrorCard";
 import Spinner from "../Spinner";
 import styles from "./QuoteContent.module.css";
+import QuoteDisplay from "./QuoteDisplay";
 
 export interface QuoteContentProps {
   status: Status;
@@ -26,12 +26,7 @@ function QuoteContent({ status, quoteProperties, error }: QuoteContentProps) {
   // no need to check for idle state! state must
   //   be "idle" if we haven't returned yet
   if (quoteProperties) {
-    const { quote, colors } = quoteProperties;
-    return (
-      <Card textColor={colors.text} backgroundColor={colors.background}>
-        {quote}
-      </Card>
-    );
+    return <QuoteDisplay quoteProperties={quoteProperties} />;
   }
 
   return undefined;
