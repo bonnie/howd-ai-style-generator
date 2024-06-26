@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
+import OpenAI from "openai";
 
 import { getRandomQuote } from "@/helpers/random-quotes";
-import OpenAI from "openai";
 
 const openai = new OpenAI({
   apiKey: process.env["OPENAI_API_KEY"],
@@ -69,16 +69,6 @@ export async function GET() {
       text_color,
       google_font_name,
     } = JSON.parse(rawStyles);
-
-    // to view the results until the UI is updated
-    console.log("========> ORIGINAL QUOTE", generatedQuote);
-    console.log("========> OPENAI RESPONSE", {
-      corrected_quote,
-      description,
-      hex_color,
-      text_color,
-      google_font_name,
-    });
 
     return NextResponse.json({
       quote: corrected_quote,

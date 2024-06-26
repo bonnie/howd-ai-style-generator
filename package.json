@@ -10,6 +10,7 @@
     "new-component": "node scripts/new-component/src/index.js"
   },
   "dependencies": {
+    "@flyyer/use-googlefonts": "^0.4.2",
     "clsx": "^2.1.1",
     "lucide-react": "^0.390.0",
     "next": "14.2.3",
