@@ -8,12 +8,23 @@ const openai = new OpenAI({
 });
 
 const systemPrompt = `You will be provided with a quotation, and your task is to generate:
- 1) a hex color code that matches the mood of the quotation
- 2) a contrasting color to the hex color code that matches the mood. The contrasting color should be "black" or "white", whichever has the higher WCAG contrast ratio compared to the color that matches the mood.
+ 1) the same quotation but with correct spelling, grammar, punctation and capitalization. Also, change any gender-specific language to non-gender-specific language (for example, change "men" to "people", 
+ or change "father" to "parent").
+ 2) three adjectives that describe the quote, to be returned with the key "description". For example, "bold, calm, professional"
+ 3) a hex color code that matches the three adjectives selected for the quotation
+ 4) a contrasting color to the hex color code that matches the mood. The contrasting color should be "black" or "white", whichever has the higher WCAG contrast ratio compared to the color that matches the mood.
+ 5) an appropriate Google font name for the 
+ quotation, based on the adjectives you chose for the
+ quote. This should be returned in the form of a 
+ valid font name. Try to pick a more unusual font, rather than relying on the most popular fonts. Examples of less popular fonts: "Playfair Display", "Marck Script", "Oswald", "Salsa"
+
 
 Write your output in json with these keys: 
+"corrected_quote"
+"description"
 "hex_color"
 "text_color"
+"google_font_name"
 `;
 
 export async function GET() {
@@ -51,11 +62,29 @@ export async function GET() {
   }
 
   try {
-    const styles = JSON.parse(rawStyles);
+    const {
+      corrected_quote,
+      description,
+      hex_color,
+      text_color,
+      google_font_name,
+    } = JSON.parse(rawStyles);
+
+    // to view the results until the UI is updated
+    console.log("========> ORIGINAL QUOTE", generatedQuote);
+    console.log("========> OPENAI RESPONSE", {
+      corrected_quote,
+      description,
+      hex_color,
+      text_color,
+      google_font_name,
+    });
 
     return NextResponse.json({
-      quote: generatedQuote,
-      colors: { background: styles.hex_color, text: styles.text_color },
+      quote: corrected_quote,
+      description,
+      colors: { background: hex_color, text: text_color },
+      fontName: google_font_name,
     });
   } catch (error) {
     // in production app, record error to logs
