@@ -4,17 +4,17 @@ import type { QuoteProperties, Status } from "@/types";
 
 import ErrorCard from "../ErrorCard";
 import Spinner from "../Spinner";
-import styles from "./QuoteContent.module.css";
-import QuoteDisplay from "./QuoteDisplay";
+import QuoteDetails from "./QuoteDetails";
+import styles from "./QuoteDisplay.module.css";
 
-export interface QuoteContentProps {
+export interface QuoteDisplayProps {
   status: Status;
   // optional, since may be undefined
   quoteProperties?: QuoteProperties;
   error?: string;
 }
 
-function QuoteContent({ status, quoteProperties, error }: QuoteContentProps) {
+function QuoteDisplay({ status, quoteProperties, error }: QuoteDisplayProps) {
   if (status === "loading") {
     return <Spinner />;
   }
@@ -26,10 +26,10 @@ function QuoteContent({ status, quoteProperties, error }: QuoteContentProps) {
   // no need to check for idle state! state must
   //   be "idle" if we haven't returned yet
   if (quoteProperties) {
-    return <QuoteDisplay quoteProperties={quoteProperties} />;
+    return <QuoteDetails quoteProperties={quoteProperties} />;
   }
 
   return undefined;
 }
 
-export default QuoteContent;
+export default QuoteDisplay;

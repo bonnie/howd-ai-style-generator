@@ -4,7 +4,7 @@ import React from "react";
 import { QuoteProperties } from "@/types";
 
 import Card from "../Card";
-import styles from "./QuoteDisplay.module.css";
+import styles from "./QuoteDetails.module.css";
 import QuoteStyleItem from "./QuoteStyleItem";
 
 async function loadFontFace(fontFace: FontFace) {
@@ -12,11 +12,11 @@ async function loadFontFace(fontFace: FontFace) {
   document.fonts.add(loadedFont);
 }
 
-export interface QuoteDisplayProps {
+export interface QuoteDetailsProps {
   quoteProperties: QuoteProperties;
 }
 
-export function QuoteDisplay({ quoteProperties }: QuoteDisplayProps) {
+export function QuoteDetails({ quoteProperties }: QuoteDetailsProps) {
   const { quote, description, colors, fontName } = quoteProperties;
 
   const font = useGoogleFonts([
@@ -63,4 +63,4 @@ export function QuoteDisplay({ quoteProperties }: QuoteDisplayProps) {
   );
 }
 
-export default QuoteDisplay;
+export default QuoteDetails;
