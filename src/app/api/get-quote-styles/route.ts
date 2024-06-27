@@ -13,11 +13,7 @@ const systemPrompt = `You will be provided with a quotation, and your task is to
  2) three adjectives that describe the quote, to be returned with the key "description". For example, "bold, calm, professional"
  3) a hex color code that matches the three adjectives selected for the quotation
  4) a contrasting color to the hex color code that matches the mood. The contrasting color should be "black" or "white", whichever has the higher WCAG contrast ratio compared to the color that matches the mood.
- 5) an appropriate Google font name for the 
- quotation, based on the adjectives you chose for the
- quote. This should be returned in the form of a 
- valid font name. Try to pick a more unusual font, rather than relying on the most popular fonts. Examples of less popular fonts: "Playfair Display", "Marck Script", "Oswald", "Salsa"
-
+ 5) an appropriate Google font name for the quotation, based on the adjectives you chose for the quote. This should be returned in the form of a valid font name. Avoid common fonts like "Lato" and "Roboto". Try to pick a more unusual font. Examples of less common fonts: "Playfair Display", "Marck Script", "Oswald", "Salsa"
 
 Write your output in json with these keys: 
 "corrected_quote"
