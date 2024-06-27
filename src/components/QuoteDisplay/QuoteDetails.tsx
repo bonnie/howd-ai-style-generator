@@ -1,7 +1,7 @@
 import { GoogleFontsStatus, useGoogleFonts } from "@flyyer/use-googlefonts";
 import React from "react";
 
-import { QuoteProperties } from "@/types";
+import type { QuoteProperties } from "@/types";
 
 import Card from "../Card";
 import styles from "./QuoteDetails.module.css";
@@ -21,19 +21,18 @@ export function QuoteDetails({ quoteProperties }: QuoteDetailsProps) {
     },
   ]);
 
+  // show an error if the call failed
   if (font.status === GoogleFontsStatus.FAILED) {
     console.error(font.error);
-  } else {
-    console.log(font.href);
   }
-
-  const fontStyle = {
-    fontFamily: fontName,
-  };
 
   // to avoid FOUT
   const textColor =
     font.status === GoogleFontsStatus.LOADING ? colors.background : colors.text;
+
+  const fontStyle = {
+    fontFamily: fontName,
+  };
 
   return (
     <div className={styles.wrapper}>

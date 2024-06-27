@@ -5,7 +5,6 @@ import type { QuoteProperties, Status } from "@/types";
 import ErrorCard from "../ErrorCard";
 import Spinner from "../Spinner";
 import QuoteDetails from "./QuoteDetails";
-import styles from "./QuoteDisplay.module.css";
 
 export interface QuoteDisplayProps {
   status: Status;
