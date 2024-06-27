@@ -4,12 +4,6 @@
   gap: 2rem;
 }
 
-.quoteStyles {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-}
-
 .quoteCard {
   font-size: 1.5rem;
 }
@@ -22,6 +16,12 @@
   .quoteCard {
     font-size: 2rem;
   }
+}
+
+.quoteStyles {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 }
 
 .styleItemsGrid {
