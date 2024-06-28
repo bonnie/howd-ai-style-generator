@@ -1,12 +1,10 @@
-"use client";
-
 import React from "react";
 
 import Button from "../Button";
 import styles from "./QuoteForm.module.css";
 
 export interface QuoteStyleFormProps {
-  fetchQuoteStyles: (quote?: string) => Promise<void>;
+  fetchQuoteStyles: (incomingQuote?: string) => Promise<void>;
   startOver: () => void;
 }
 
@@ -28,23 +26,19 @@ const QuoteStyleForm = ({
   const buttonLabel = quote ? "generate styles" : "use random quote";
 
   return (
-    <div className={styles.wrapper}>
-      <form className={styles.form} onSubmit={handleSubmit}>
-        <div className={styles.enterQuote}>
-          <textarea
-            value={quote}
-            placeholder="Enter a quote..."
-            onChange={(event) => setQuote(event.target.value)}
-          />
-          <div className={styles.quoteButtons}>
-            <Button type="button" variant="outline" onClick={reset}>
-              start over
-            </Button>
-            <Button type="submit">{buttonLabel}</Button>
-          </div>
-        </div>
-      </form>
-    </div>
+    <form className={styles.wrapper} onSubmit={handleSubmit}>
+      <textarea
+        placeholder="Enter a quote..."
+        value={quote}
+        onChange={(event) => setQuote(event.target.value)}
+      />
+      <div className={styles.buttons}>
+        <Button type="button" variant="outline" onClick={reset}>
+          start over
+        </Button>
+        <Button type="submit">{buttonLabel}</Button>
+      </div>
+    </form>
   );
 };
 
