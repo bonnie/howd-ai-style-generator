@@ -19,14 +19,20 @@ function useQuoteStyles() {
   const [status, setStatus] = React.useState<Status>("idle");
   const [error, setError] = React.useState<string>();
 
-  const fetchQuoteStyles = async () => {
+  const fetchQuoteStyles = async (incomingQuote?: string) => {
     // reset error
     setError(undefined);
 
     try {
       // start request
       setStatus("loading");
-      const response = await fetch("/api/get-quote-styles");
+
+      const baseUrl = "/api/get-quote-styles";
+      const url = incomingQuote
+        ? encodeURI(`${baseUrl}?quote=${incomingQuote}`)
+        : baseUrl;
+
+      const response = await fetch(url);
       if (!response.ok) {
         throw new Error(response.statusText);
       }
@@ -44,7 +50,18 @@ function useQuoteStyles() {
     }
   };
 
-  return { status, error, quoteProperties, fetchQuoteStyles };
+  const startOver = () => {
+    setQuoteProperties(undefined);
+    setError(undefined);
+  };
+
+  return {
+    status,
+    error,
+    quoteProperties,
+    fetchQuoteStyles,
+    startOver,
+  };
 }
 
 export default useQuoteStyles;
