@@ -5,16 +5,16 @@
   gap: 1rem;
 }
 
-.wrapper textarea {
-  height: 6rem;
-  padding: 0.5rem;
-  border-radius: 0.5rem;
-  font-size: 1.1rem;
-}
-
 .buttons {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
   gap: 0.5rem; /* for separation when the buttons wrap */
+}
+
+.wrapper textarea {
+  height: 6rem;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  font-size: 1.1rem;
 }
