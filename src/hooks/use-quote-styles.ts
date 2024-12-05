@@ -4,7 +4,13 @@ import type { QuoteProperties, Status } from "@/types";
 
 // https://x.com/mattpocockuk/status/1627686849396211716?lang=en
 const isValidJson = (json: any) => {
-  return json?.quote && json?.colors?.text && json?.colors?.background;
+  return (
+    json?.quote &&
+    json?.colors?.text &&
+    json?.colors?.background &&
+    json?.description &&
+    json?.fontName
+  );
 };
 
 function useQuoteStyles() {
@@ -30,8 +36,7 @@ function useQuoteStyles() {
         throw new Error("Malformed response");
       }
 
-      const { quote, colors } = json;
-      setQuoteProperties({ quote, colors });
+      setQuoteProperties(json);
       setStatus("idle");
     } catch (error) {
       setError(error?.toString());

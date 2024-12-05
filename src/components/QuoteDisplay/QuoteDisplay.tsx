@@ -2,19 +2,18 @@ import React from "react";
 
 import type { QuoteProperties, Status } from "@/types";
 
-import Card from "../Card";
 import ErrorCard from "../ErrorCard";
 import Spinner from "../Spinner";
-import styles from "./QuoteContent.module.css";
+import QuoteDetails from "./QuoteDetails";
 
-export interface QuoteContentProps {
+export interface QuoteDisplayProps {
   status: Status;
   // optional, since may be undefined
   quoteProperties?: QuoteProperties;
   error?: string;
 }
 
-function QuoteContent({ status, quoteProperties, error }: QuoteContentProps) {
+function QuoteDisplay({ status, quoteProperties, error }: QuoteDisplayProps) {
   if (status === "loading") {
     return <Spinner />;
   }
@@ -26,15 +25,10 @@ function QuoteContent({ status, quoteProperties, error }: QuoteContentProps) {
   // no need to check for idle state! state must
   //   be "idle" if we haven't returned yet
   if (quoteProperties) {
-    const { quote, colors } = quoteProperties;
-    return (
-      <Card textColor={colors.text} backgroundColor={colors.background}>
-        {quote}
-      </Card>
-    );
+    return <QuoteDetails quoteProperties={quoteProperties} />;
   }
 
   return undefined;
 }
 
-export default QuoteContent;
+export default QuoteDisplay;
