@@ -1,9 +1,15 @@
 import React from "react";
 
-import type { Status } from "@/types";
+import type { QuoteProperties, Status } from "@/types";
+
+// https://x.com/mattpocockuk/status/1627686849396211716?lang=en
+const isValidJson = (json: any) => {
+  return json?.quote && json?.colors?.text && json?.colors?.background;
+};
 
 function useQuoteStyles() {
-  const [quote, setQuote] = React.useState<string>();
+  const [quoteProperties, setQuoteProperties] =
+    React.useState<QuoteProperties>();
   const [status, setStatus] = React.useState<Status>("idle");
   const [error, setError] = React.useState<string>();
 
@@ -20,11 +26,12 @@ function useQuoteStyles() {
       }
 
       const json = await response.json();
-      if (!json?.quote) {
+      if (!isValidJson(json)) {
         throw new Error("Malformed response");
       }
 
-      setQuote(json.quote);
+      const { quote, colors } = json;
+      setQuoteProperties({ quote, colors });
       setStatus("idle");
     } catch (error) {
       setError(error?.toString());
@@ -32,7 +39,7 @@ function useQuoteStyles() {
     }
   };
 
-  return { status, error, quote, fetchQuoteStyles };
+  return { status, error, quoteProperties, fetchQuoteStyles };
 }
 
 export default useQuoteStyles;

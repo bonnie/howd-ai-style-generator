@@ -6,13 +6,17 @@ import Separator from "@/components/Separator";
 import useQuoteStyles from "@/hooks/use-quote-styles";
 
 export default function Home() {
-  const { status, error, quote, fetchQuoteStyles } = useQuoteStyles();
+  const { status, error, quoteProperties, fetchQuoteStyles } = useQuoteStyles();
 
   return (
     <main>
       <Button onClick={fetchQuoteStyles}>use random quote</Button>
       <Separator />
-      <QuoteContent status={status} quote={quote} error={error} />
+      <QuoteContent
+        status={status}
+        quoteProperties={quoteProperties}
+        error={error}
+      />
     </main>
   );
 }
